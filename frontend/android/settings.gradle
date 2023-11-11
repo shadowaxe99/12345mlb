@@ -1,0 +1,11 @@
+rootProject.name = 'AI Baseball Coach'
+include ':app'
+
+// Set up the project-level build.gradle file reference
+rootProject.buildFileName = 'build.gradle'
+
+// Include any additional or future modules here
+// include ':somedependencymodule'
+
+// Configure the project-level settings for the included modules
+project(':app').projectDir = new File(rootDir, 'app')

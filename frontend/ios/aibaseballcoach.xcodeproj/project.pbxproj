@@ -1,0 +1,33 @@
+// !/usr/bin/env python
+// -*- coding: utf-8 -*-
+
+import os
+import plistlib
+import subprocess
+import sys
+
+def main():
+    # Path to the .xcodeproj directory
+    xcodeproj_path = "frontend/ios/aibaseballcoach.xcodeproj"
+    project_pbxproj_path = os.path.join(xcodeproj_path, "project.pbxproj")
+
+    # Load the project.pbxproj file as a dictionary
+    with open(project_pbxproj_path, 'rb') as f:
+        pbxproj_dict = plistlib.load(f)
+
+    # Modify the project settings as needed
+    # This is a placeholder for the actual settings that would be modified
+    # based on the specific requirements of the AI Baseball Coach application.
+    # For example, you might set the PRODUCT_BUNDLE_IDENTIFIER, or add build
+    # configurations, or add files to the project, etc.
+
+    # Save the modified project.pbxproj file
+    with open(project_pbxproj_path, 'wb') as f:
+        plistlib.dump(pbxproj_dict, f)
+
+    # Use xcodebuild to clean and build the project
+    # This ensures that the changes are valid and that the project can still build.
+    subprocess.run(["xcodebuild", "-project", xcodeproj_path, "clean", "build"], check=True)
+
+if __name__ == "__main__":
+    main()

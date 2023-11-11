@@ -1,0 +1,38 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowPublicReadAccess",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::aibaseballcoach-videos/*",
+        "arn:aws:s3:::aibaseballcoach-feedback/*",
+        "arn:aws:s3:::aibaseballcoach-profiles/*"
+      ]
+    },
+    {
+      "Sid": "AllowAppBucketAccess",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::123456789012:user/AI_Baseball_Coach_App"
+        ]
+      },
+      "Action": [
+        "s3:*"
+      ],
+      "Resource": [
+        "arn:aws:s3:::aibaseballcoach-videos",
+        "arn:aws:s3:::aibaseballcoach-videos/*",
+        "arn:aws:s3:::aibaseballcoach-feedback",
+        "arn:aws:s3:::aibaseballcoach-feedback/*",
+        "arn:aws:s3:::aibaseballcoach-profiles",
+        "arn:aws:s3:::aibaseballcoach-profiles/*"
+      ]
+    }
+  ]
+}
